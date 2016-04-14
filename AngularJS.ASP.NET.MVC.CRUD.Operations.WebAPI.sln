@@ -3,7 +3,45 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJS.Entity.DataMart", "AngularJS.Entity.DataMart\AngularJS.Entity.DataMart.csproj", "{9EEB7393-B13F-4E00-B916-F8D21134A14A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJS.Entity.Domain", "AngularJS.Entity.Domain\AngularJS.Entity.Domain.csproj", "{BA772108-75AA-47E9-8FC1-40EC39934250}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJS.Entity.RepositoryService", "AngularJS.Entity.RepositoryService\AngularJS.Entity.RepositoryService.csproj", "{A9960EA3-0EB9-4DC6-8166-C99C97CF0DC5}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AngularJS.Entity.SqlServer", "AngularJS.Entity.SqlServer\AngularJS.Entity.SqlServer.sqlproj", "{42D19F9F-41C2-40DA-BAC7-D5E9B1658920}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJS.Entity.Service.WebAPI", "AngularJS.Entity.Service.WebAPI\AngularJS.Entity.Service.WebAPI.csproj", "{BB1321FF-4489-4E55-BA8D-D1E47F2CCB37}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EEB7393-B13F-4E00-B916-F8D21134A14A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EEB7393-B13F-4E00-B916-F8D21134A14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EEB7393-B13F-4E00-B916-F8D21134A14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EEB7393-B13F-4E00-B916-F8D21134A14A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA772108-75AA-47E9-8FC1-40EC39934250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA772108-75AA-47E9-8FC1-40EC39934250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA772108-75AA-47E9-8FC1-40EC39934250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA772108-75AA-47E9-8FC1-40EC39934250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9960EA3-0EB9-4DC6-8166-C99C97CF0DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9960EA3-0EB9-4DC6-8166-C99C97CF0DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9960EA3-0EB9-4DC6-8166-C99C97CF0DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9960EA3-0EB9-4DC6-8166-C99C97CF0DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D19F9F-41C2-40DA-BAC7-D5E9B1658920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D19F9F-41C2-40DA-BAC7-D5E9B1658920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D19F9F-41C2-40DA-BAC7-D5E9B1658920}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{42D19F9F-41C2-40DA-BAC7-D5E9B1658920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D19F9F-41C2-40DA-BAC7-D5E9B1658920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D19F9F-41C2-40DA-BAC7-D5E9B1658920}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BB1321FF-4489-4E55-BA8D-D1E47F2CCB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB1321FF-4489-4E55-BA8D-D1E47F2CCB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB1321FF-4489-4E55-BA8D-D1E47F2CCB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB1321FF-4489-4E55-BA8D-D1E47F2CCB37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
