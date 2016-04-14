@@ -32,14 +32,16 @@ namespace AngularJS.Entity.DataMart.DataContext
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            //modelBuilder.Configurations.Add(new EmployeeMap());
+            modelBuilder.Configurations.Add(new EmployeeMap());
             //modelBuilder.Configurations.Add(new CountryMap());
             //modelBuilder.Configurations.Add(new StateMap());
+
+
             //Enable-Migrations -EnableAutomaticMigrations -Force
             //Update-Database -Script -ProjectName MoneyMatters.DataAccess
             //Enable-Migrations -ProjectName MoneyMatters.DataAccess
 
-            //modelBuilder.Entity<State>().HasRequired(p => p.Country);
+            modelBuilder.Entity<State>().HasRequired(p => p.Country);
 
             //
             base.OnModelCreating(modelBuilder);

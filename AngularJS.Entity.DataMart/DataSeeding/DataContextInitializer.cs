@@ -11,6 +11,19 @@ namespace AngularJS.Entity.DataMart.DataSeeding
     {
         protected override void Seed(AngularContext context)
         {
+            //var countryBuilder = new CountryBuilder();
+            //var countries = countryBuilder.BuildCountry(context);
+            //countries.ForEach(m =>
+            //{
+            //    context.Countries.Add(m);
+            //});
+            //var stateBuilder = new StateBuilder();
+            //var states = stateBuilder.BuildStates(context);
+            //states.ForEach(m =>
+            //{
+            //    context.States.Add(m);
+            //});
+
             var list = new List<Employee>
             {
                 new Employee
@@ -125,7 +138,7 @@ namespace AngularJS.Entity.DataMart.DataSeeding
                 {
                     FirstName = "Shelly",
                     LastName = "Genovese",
-                    Description = "Rahul Singh",
+                    Description = "Slelly grooming",
                     DateOfBirth = DateTime.Now.AddYears(-23),
                     Country = "IN",
                     State = "MH",
@@ -300,6 +313,17 @@ namespace AngularJS.Entity.DataMart.DataSeeding
                     Country = "USA",
                     State = "MI",
                     Salary = 1900.00m,
+                    IsActive = true
+                },
+                      new Employee
+                {
+                    FirstName = "Angie",
+                    LastName = "Hillman",
+                    Description = "Civil Engineer",
+                    DateOfBirth = DateTime.Now.AddYears(-54),
+                    Country = "USA",
+                    State = "MN",
+                    Salary = 6900.00m,
                     IsActive = true
                 }
             };

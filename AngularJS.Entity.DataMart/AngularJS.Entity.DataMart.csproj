@@ -51,8 +51,12 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DataContext\AngularContext.cs" />
-    <Compile Include="DataSeeding\Class1.cs" />
+    <Compile Include="DataSeeding\CountryBuilder.cs" />
+    <Compile Include="DataSeeding\DataContextInitializer.cs" />
+    <Compile Include="DataSeeding\StateBuilder.cs" />
+    <Compile Include="Mapping\CountryMap.cs" />
     <Compile Include="Mapping\EmployeeMap.cs" />
+    <Compile Include="Mapping\StateMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
