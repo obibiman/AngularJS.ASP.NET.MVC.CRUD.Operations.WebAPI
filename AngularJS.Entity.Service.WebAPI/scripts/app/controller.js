@@ -1,5 +1,5 @@
 ﻿var EmpControllers = angular.module("EmpControllers", []);
-// this controller call the api method and display the list of employees  
+// this controller calls the api method and display the list of employees  
 // in list.html  
 EmpControllers.controller("ListController", ['$scope', '$http',
     function ($scope, $http) {
@@ -8,7 +8,7 @@ EmpControllers.controller("ListController", ['$scope', '$http',
         });
     }
 ]);
-// this controller call the api method and display the record of selected employee  
+// this controller calls the api method and display the record of selected employee  
 // in delete.html and provide an option for delete  
 EmpControllers.controller("DeleteController", ['$scope', '$http', '$routeParams', '$location',
     function ($scope, $http, $routeParams, $location) {
@@ -32,7 +32,7 @@ EmpControllers.controller("DeleteController", ['$scope', '$http', '$routeParams'
         };
     }
 ]);
-// this controller call the api method and display the record of selected employee  
+// this controller calls the api method and display the record of selected employee  
 // in edit.html and provide an option for create and modify the employee and save the employee record  
 EmpControllers.controller("EditController", ['$scope', '$filter', '$http', '$routeParams', '$location',
     function ($scope, $filter, $http, $routeParams, $location) {

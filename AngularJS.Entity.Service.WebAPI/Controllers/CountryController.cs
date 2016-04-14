@@ -157,7 +157,11 @@ namespace AngularJS.Entity.Service.WebAPI.Controllers
                         Text = "Michigan",
                         Value = "MI"
                     });
-
+                    states.Add(new System.Web.Mvc.SelectListItem
+                    {
+                        Text = "Minnesota",
+                        Value = "MN"
+                    });
                     break;
                 case "UK":
                     states.Add(new System.Web.Mvc.SelectListItem
@@ -169,6 +173,25 @@ namespace AngularJS.Entity.Service.WebAPI.Controllers
                     {
                         Text = "Liverpool",
                         Value = "LP"
+                    }); states.Add(new System.Web.Mvc.SelectListItem
+                    {
+                        Text = "Cornwall",
+                        Value = "CO"
+                    });
+                    states.Add(new System.Web.Mvc.SelectListItem
+                    {
+                        Text = "Berkshire",
+                        Value = "BK"
+                    });
+                    states.Add(new System.Web.Mvc.SelectListItem
+                    {
+                        Text = "Middlesex",
+                        Value = "MX"
+                    });
+                    states.Add(new System.Web.Mvc.SelectListItem
+                    {
+                        Text = "Gloucestershire",
+                        Value = "GL"
                     });
                     break;
                 case "CA":
