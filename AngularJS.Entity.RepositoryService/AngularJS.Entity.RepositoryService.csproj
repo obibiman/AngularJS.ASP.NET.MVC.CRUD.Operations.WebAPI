@@ -50,10 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DataFactory\Concrete\Repositories\CountryRepository.cs" />
     <Compile Include="DataFactory\Concrete\Repositories\EmployeeRepository.cs" />
+    <Compile Include="DataFactory\Concrete\Repositories\StateRepository.cs" />
+    <Compile Include="DataFactory\Interfaces\Repositories\ICountryRepository.cs" />
     <Compile Include="DataFactory\Interfaces\Repositories\IEmployeeRepository.cs" />
     <Compile Include="DataFactory\Interfaces\Repositories\IRepository.cs" />
     <Compile Include="DataFactory\Concrete\Repositories\Repository.cs" />
+    <Compile Include="DataFactory\Interfaces\Repositories\IStateRepository.cs" />
     <Compile Include="DataFactory\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="DataFactory\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

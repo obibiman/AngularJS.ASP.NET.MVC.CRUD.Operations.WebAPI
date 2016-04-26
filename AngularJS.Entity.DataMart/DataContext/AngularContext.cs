@@ -25,16 +25,16 @@ namespace AngularJS.Entity.DataMart.DataContext
         }
 
         public DbSet<Employee> Employees { get; set; }
-        //public DbSet<Country> Countries { get; set; }
-        //public DbSet<State> States { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<State> States { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Configurations.Add(new EmployeeMap());
-            //modelBuilder.Configurations.Add(new CountryMap());
-            //modelBuilder.Configurations.Add(new StateMap());
+            modelBuilder.Configurations.Add(new CountryMap());
+            modelBuilder.Configurations.Add(new StateMap());
 
 
             //Enable-Migrations -EnableAutomaticMigrations -Force

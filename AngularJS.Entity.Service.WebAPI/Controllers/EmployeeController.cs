@@ -53,7 +53,6 @@ namespace AngularJS.Entity.Service.WebAPI.Controllers
         [HttpPost]
         public HttpResponseMessage Post(Employee employee)
         {
-
             _unitOfWork.EmployeeRepository.Add(employee);
             var response = Request.CreateResponse(HttpStatusCode.Created);
             response.StatusCode = HttpStatusCode.Created;

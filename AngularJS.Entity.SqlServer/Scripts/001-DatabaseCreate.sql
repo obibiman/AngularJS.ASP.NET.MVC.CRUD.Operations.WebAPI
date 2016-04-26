@@ -1,0 +1,117 @@
+﻿USE [AngularCRUD]
+GO
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 4/26/2016 1:32:28 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[__MigrationHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ContextKey] [nvarchar](300) NOT NULL,
+	[Model] [varbinary](max) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK_dbo.__MigrationHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC,
+	[ContextKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Country]    Script Date: 4/26/2016 1:32:28 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Country](
+	[CountryId] [int] IDENTITY(1,1) NOT NULL,
+	[CountryCode] [nvarchar](25) NOT NULL,
+	[CountryName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_dbo.Country] PRIMARY KEY CLUSTERED 
+(
+	[CountryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Employee]    Script Date: 4/26/2016 1:32:28 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[EmployeeId] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](20) NOT NULL,
+	[LastName] [nvarchar](20) NOT NULL,
+	[Description] [nvarchar](100) NOT NULL,
+	[Salary] [decimal](18, 2) NULL,
+	[Country] [nvarchar](50) NOT NULL,
+	[State] [nvarchar](50) NULL,
+	[DateOfBirth] [datetime] NOT NULL,
+	[IsActive] [bit] NULL,
+ CONSTRAINT [PK_dbo.Employee] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[State]    Script Date: 4/26/2016 1:32:28 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[State](
+	[StateId] [int] IDENTITY(1,1) NOT NULL,
+	[StateCode] [nvarchar](25) NOT NULL,
+	[StateName] [nvarchar](50) NULL,
+	[CountryId] [int] NOT NULL,
+ CONSTRAINT [PK_dbo.State] PRIMARY KEY CLUSTERED 
+(
+	[StateId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+INSERT [dbo].[__MigrationHistory] ([MigrationId], [ContextKey], [Model], [ProductVersion]) VALUES (N'201604160104314_InitialCreate', N'AngularJS.Entity.DataMart.DataContext.AngularContext', 0x1F8B0800000000000400D55ADB6EE336107D2FD07F10F458642DC78B05B681BD8BAC93146E37711065177D5BD0D2D8214A512A49053116FDB23EF493FA0B1DEA7EB524C7B91479B148CE99E17066481EE6DFBFFF997E7CF098710F42529FCFCCE3D1D834803BBE4BF96666866AFDE6BDF9F1C38F3F4CCF5DEFC1F89A8E7BABC7A1249733F34EA9E0C4B2A473071E91238F3AC297FE5A8D1CDFB388EB5B93F1F867EBF8D802843011CB30A6372157D483E8033FE73E772050216197BE0B4C26EDD86347A8C615F14006C4819979CA372123E2577B748E186A3B3A238A5C12A1A21F88A4E04199C629A3048DB381AD4D8370EE2BA2D0F4932F126C257CBEB1036C20EC761B008E5B13262199D2493EBCEFECC6133D3B2B174CA19C502ADF1B0878FC3671975515DFCBE966E64E7468EC343DEBC8A93373EEE35A88AD6954759DCC99D0E39A5C8EE3281F25A24746CB80A32C6030AEF4DF91310F990A05CC38844A1076645C872B469DDF607BEBFF017CC643C68AF6A2C5D8576AC0A66BE10720D4F606D6E5592C5CD3B0CAE256553E93AE8BC6D35D70F576621A57680A5931C882A3E01A5BF9027E010E822870AF895220706D172E44F3AF19D1AC728EC19E2AC5A0C494338D4BF2F019F846DDCDCCC93BD3B8A00FE0A60D891D5F38C5044519254268B0B3976EFDB143F7BB712FDD4555532B8FAD9D1177EE05CCDF02EC1372A9EC6B88B9D4967D82AE28FB5C51774185541DEB3EE9B7EE0363EE337921C567201D4183B874B6EA3E1E3F89729B607C6E53BD67E0508F30D3B816F82BD96EDF9B86ED108D38E999B78FCFD9A1B3C0E03B70A5685827D4B15C7FA242DD65FEC2A65BEA0D3778214F1D45EF339B3FF93E03C2F72C56C9F48757AA48F03594A9C8907D6A5426F85C052A52F8229B62A4F9F05BE2230E1B15982B724F379193DBCAC20DB0A85FDED1203EF7C621F82D1B71217CEFC667E974D38E6FB61F0A47CFDC6FEABD256203AA5FF69C4AE93B3432A3E8D8CC84F29CCEB96BECB4275E896C26B81A982234C0A440DD33F3A79A97DA10D339141033AF94318FCD6A422DF919305060E8AAA28BF69C4887B8F525429FB8E516CC41103AF409C37B89C4ACA65CD5139672870684EDB2BC2234EC08AC6DCBB4547BCE2000AEF373D7523C5A7DA6A5E2B22E0F4DAD4248D5EBB4BEEDA10488C486A4D86697C05AD5C6DB5F52B86592AFD500D2B036A8D2A42848D3C823BE1A41B5202C63A447BD268CFC28DC01122D4B1342921915F182D72A187939288C69AC17D545EC4AD7CCE4DCDA5A2074256801A3E0FA6AA29567D75097B2B8C889042B661252C6C16AA11CA6972408B0F2172888A4C5B063FE61FEC61E7E0BF7620CCB910D97F1CCDA4C136EA36403955EED1217A243BC663A56446F1373D7AB0DAB64414B60A5CAAA815E5FB234E25209FDBB946FBBB998514B40E5AEBDC0D97ABA0445E7875A0C344846CC903E5EB76FAF739F851EEFAC4D9D58F179A4012DEE188C179F321AF0E28E3ADED4AAB8A9565D6B4B54DB98CA6BDE2B22F2B275F888C8CADEF09068176DF37BF1AA5D747BFBF57D175AE1125D042B34F7C7CAAFC545A8BCB53F52E99E5B042B75F4C74BAFAE45A8B46D70C43746FB206BE23DAE644CD3B6B7D343C51B66C943C58EFE78F92DB30896B7BE9A3C4EF6E2C32771BC04C333B8456EE7E25773B7E54EDB89532FE685E68158F5CC2D340F4E92415BD6938652ED10551D9269CF0E539543D33439C0743FE6D44E34F1104D92F9F7D4D5A7197B2B157851E48DEC3FD99C519C6F3EE09270BA06A9628EC49C8C8F2795C79FD7F3106349E9B27EAF312FFC0442B58B3BD99CFD5E1E8A040FBF27C2B923A246F13CFE51A3115A733839F421DE305EFCDDE04996AAF654D0BC50E347BF041C0AB781E86F848EA8FE47F1F86E278FBF2BC03A79FD1E613B9CB6DF2B177AB1F42E36A943B0F42BAA0E949A0DE78BE725CA9F24236BDCF8A14A678DFA3E50B034EF2935466EC15D789899DF23A91363F1FBB74CF0C8580ADCE14F8CB1F157C7B40E4D48571FDB9E8B31AEF063FB70E07B91CEED14CD93F2CCFF1B62B9CEBCF5E18DB7BB58E3F8A48B1574E5E332C7913D9452DEC928372918C637B7D3CD4DD82FC14457FC5C220D3BD9E73A65FD345473FD3684F159F80738CC0D49373984FE77380E4E2932B3310BBEF6D31CA958940EA914E24B5004B769722A145D134761B7035246CF9B5F090BA3B05881BBE0CB5005A1C22983B7622507EA44DBA53FE2D3CB364F97D1694C1E620A6826D5278D25FF1452E666765F34EC042D103A8393ED58AFA5D2DBF2669B215DF9BC2750E2BEACF0DC02E694A65896DC26FA3C33DCB62F123EC38638DBF452DB0ED2BD1065B74FCF28D908E2C9042397C74F8C61D77BF8F01F8B32D576072A0000, N'6.1.3-40302')
+SET IDENTITY_INSERT [dbo].[Employee] ON 
+
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (1, N'Rohit', N'Mane', N'Rohit Mane', CAST(3500.00 AS Decimal(18, 2)), N'IN', N'MH', CAST(N'1992-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (2, N'Samuel', N'Crowder', N'Musician', CAST(1900.00 AS Decimal(18, 2)), N'USA', N'TX', CAST(N'1997-04-15 20:04:31.430' AS DateTime), 0)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (3, N'Jorge', N'DeJesus', N'Accountant', CAST(5300.00 AS Decimal(18, 2)), N'USA', N'MD', CAST(N'1971-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (4, N'Shankar', N'Kanase', N'Rahul Singh', CAST(2300.00 AS Decimal(18, 2)), N'IN', N'MH', CAST(N'1993-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (5, N'Brenda', N'DeMonaco', N'Breanda of Everton', CAST(3100.00 AS Decimal(18, 2)), N'US', N'TN', CAST(N'1982-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (6, N'Brad', N'Poole', N'Accountant', CAST(5300.00 AS Decimal(18, 2)), N'USA', N'NY', CAST(N'1971-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (7, N'Marvin', N'Sutton', N'Rahul Singh', CAST(2300.00 AS Decimal(18, 2)), N'IN', N'MH', CAST(N'1993-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (8, N'Mary Jo', N'Alvarado', N'Mary Jo', CAST(3100.00 AS Decimal(18, 2)), N'US', N'MO', CAST(N'1982-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (9, N'Edwina', N'Sneed', N'Hair dresser', CAST(5100.00 AS Decimal(18, 2)), N'USA', N'NY', CAST(N'1987-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (10, N'Paul', N'Mustafa', N'Carpenter', CAST(3300.00 AS Decimal(18, 2)), N'USA', N'NY', CAST(N'1971-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (11, N'Shelly', N'Genovese', N'Slelly grooming', CAST(2300.00 AS Decimal(18, 2)), N'IN', N'MH', CAST(N'1993-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (12, N'Brianna', N'Delembert', N'Teacher', CAST(7390.00 AS Decimal(18, 2)), N'USA', N'WV', CAST(N'1971-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (13, N'Eric', N'Marrassee', N'Erie', CAST(3100.00 AS Decimal(18, 2)), N'US', N'MO', CAST(N'1982-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (14, N'Nancy', N'Washington', N'Nancy''s Home cooked tamales', CAST(133500.00 AS Decimal(18, 2)), N'USA', N'OK', CAST(N'1992-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (15, N'LaQuan', N'Marshall', N'Sheriff deputy', CAST(4410.00 AS Decimal(18, 2)), N'USA', N'GA', CAST(N'1988-04-15 20:04:31.430' AS DateTime), 0)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (16, N'Anna', N'Warfield', N'Administrative assistant', CAST(71300.00 AS Decimal(18, 2)), N'USA', N'MA', CAST(N'1959-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (17, N'Kevin', N'McWorther', N'The Professor', CAST(85200.00 AS Decimal(18, 2)), N'USA', N'ID', CAST(N'1962-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (18, N'Michael', N'Allaniz', N'Security guard', CAST(4000.00 AS Decimal(18, 2)), N'USA', N'NY', CAST(N'1977-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (19, N'Early', N'Quinto', N'Laborer', CAST(1900.00 AS Decimal(18, 2)), N'USA', N'OK', CAST(N'1977-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (20, N'Brian', N'Levinson', N'TV Extra', CAST(15200.00 AS Decimal(18, 2)), N'USA', N'CA', CAST(N'1986-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (21, N'Jeremy', N'Robard', N'Line cook', CAST(8200.00 AS Decimal(18, 2)), N'USA', N'NM', CAST(N'1994-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (22, N'Betty', N'Nguyen', N'Nurse', CAST(1900.00 AS Decimal(18, 2)), N'USA', N'AZ', CAST(N'1977-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (23, N'Mohammed', N'Hajj', N'Truck driver', CAST(1900.00 AS Decimal(18, 2)), N'USA', N'VA', CAST(N'1962-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (24, N'Travis', N'Roberts', N'Anchorman', CAST(15200.00 AS Decimal(18, 2)), N'USA', N'NV', CAST(N'1962-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (25, N'Marissa', N'George', N'Minister', CAST(1900.00 AS Decimal(18, 2)), N'USA', N'AR', CAST(N'1977-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (26, N'Jamaal', N'Lane', N'Anestsiologist', CAST(15200.00 AS Decimal(18, 2)), N'USA', N'ME', CAST(N'1986-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (27, N'David', N'Henry', N'Mechanic', CAST(1900.00 AS Decimal(18, 2)), N'USA', N'MI', CAST(N'1962-04-15 20:04:31.430' AS DateTime), 1)
+INSERT [dbo].[Employee] ([EmployeeId], [FirstName], [LastName], [Description], [Salary], [Country], [State], [DateOfBirth], [IsActive]) VALUES (28, N'Angie', N'Hillman', N'Civil Engineer', CAST(6900.00 AS Decimal(18, 2)), N'USA', N'MN', CAST(N'1962-04-15 20:04:31.430' AS DateTime), 1)
+SET IDENTITY_INSERT [dbo].[Employee] OFF
+ALTER TABLE [dbo].[State]  WITH CHECK ADD  CONSTRAINT [FK_dbo.State_dbo.Country_CountryId] FOREIGN KEY([CountryId])
+REFERENCES [dbo].[Country] ([CountryId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[State] CHECK CONSTRAINT [FK_dbo.State_dbo.Country_CountryId]
+GO

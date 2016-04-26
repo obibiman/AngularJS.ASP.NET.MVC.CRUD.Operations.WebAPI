@@ -8,11 +8,14 @@ namespace AngularJS.Entity.RepositoryService.DataFactory.UnitOfWork
     {
         private readonly AngularContext _context;
         public IEmployeeRepository EmployeeRepository { get; }
-
+        public ICountryRepository CountryRepository { get; }
+        public IStateRepository StateRepository { get; }
         public UnitOfWork(AngularContext context)
         {
             _context = context;
             EmployeeRepository = new EmployeeRepository(_context);
+            CountryRepository = new CountryRepository(_context);
+            StateRepository = new StateRepository(_context);
         }
 
         public void Dispose()

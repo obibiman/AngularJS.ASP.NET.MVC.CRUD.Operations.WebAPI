@@ -20,6 +20,8 @@ namespace AngularJS.Entity.Service.WebAPI
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<IRepository<Employee>, Repository<Employee>>();
             container.RegisterType<IEmployeeRepository, EmployeeRepository>();
+            container.RegisterType<ICountryRepository, CountryRepository>();
+            container.RegisterType<IStateRepository, StateRepository>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
